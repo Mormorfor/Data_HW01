@@ -2,7 +2,7 @@ from math import sqrt
 import data as dt
 
 def calc_mean(values):
-    return round(sum(values) / len(values), 2)
+    return sum(values) / len(values)
 
 def calc_stdv(values):
     mean = calc_mean(values)
@@ -11,7 +11,7 @@ def calc_stdv(values):
         element = (val - mean)
         sq_sum += (element ** 2)
     result = sqrt(sq_sum / (len(values)-1))
-    return round(result, 2)
+    return result
 
 def calc_covariance(values1, values2):
     mean_x = calc_mean(values1)
@@ -20,10 +20,10 @@ def calc_covariance(values1, values2):
     for val_x, val_y in zip(values1, values2):
         element += (val_x - mean_x)*(val_y - mean_y)
     result = element / (len(values1) - 1)
-    return round(result, 2)
+    return result
 
 def population_statistics(feature_description, data, treatment, target, threshold, is_above, statistic_functions):
-    print(f"{feature_description}: ")
+    print(f"{feature_description}:")
     values_above_threshold = []
 
     for val in data[treatment]:
@@ -32,11 +32,13 @@ def population_statistics(feature_description, data, treatment, target, threshol
 
     filtered_data = dt.filter_by_feature(data, treatment, values_above_threshold)
     if(is_above):
-        print(f"{target}: {statistic_functions[0](filtered_data[0][target])},"
-              f" {statistic_functions[1](filtered_data[0][target])}")
+        formatted_mean = "{:.2f}".format(statistic_functions[0](filtered_data[0][target]))
+        formatted_stdv = "{:.2f}".format(statistic_functions[1](filtered_data[0][target]))
+        print(f"{target}: {formatted_mean}, {formatted_stdv}")
     else:
-        print( f"{target}: {statistic_functions[0](filtered_data[1][target])}, "
-               f"{statistic_functions[1](filtered_data[1][target])}")
+        formatted_mean = "{:.2f}".format(statistic_functions[0](filtered_data[1][target]))
+        formatted_stdv = "{:.2f}".format(statistic_functions[1](filtered_data[1][target]))
+        print( f"{target}: {formatted_mean}, {formatted_stdv}")
 
 
 
