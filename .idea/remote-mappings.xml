@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="RemoteMappingsManager">
+    <list>
+      <list>
+        <remote-mappings server-id="python@dbe25283-f345-4ecc-9cbe-1c7f206c1331" />
+        <remote-mappings server-id="python@sftp://student@ds2021s-0025.eastus.cloudapp.azure.com:22/home/student/.conda/envs/HWEnv/bin/python">
+          <settings>
+            <list>
+              <mapping local-root="$PROJECT_DIR$" remote-root="/home/student/Homeworks" />
+            </list>
+          </settings>
+        </remote-mappings>
+      </list>
+    </list>
+  </component>
+</project>
