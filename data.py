@@ -6,7 +6,14 @@ def load_data(path, features):
     return data
 
 def print_details(data, features, statistic_functions):
-    pass
+    for feature in features:
+        if feature in data.keys():
+             print( f"{feature}: {statistic_functions[0](data[feature])}, {statistic_functions[1](data[feature])}")
+
+def print_joint_details(data, features, statistic_functions, statistic_functions_names):
+    for func, func_name in zip(statistic_functions, statistic_functions_names):
+        stat_data = func(data[features[0]], data[features[1]])
+        print(f"{func_name}({features[0]}, {features[1]}): {stat_data}")
 
 
 def filter_by_feature(data, feature, values):
