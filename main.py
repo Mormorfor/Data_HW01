@@ -7,7 +7,6 @@ def main(argv):
     features = "hum, t1, cnt, season, is_holiday"
  #   path = argv[1]
  #   features = argv[2]
- #   data.load_data(path, features)
 
     dt = data.load_data(path,features)
     statistic_functions = [statistics.calc_mean, statistics.calc_stdv]
