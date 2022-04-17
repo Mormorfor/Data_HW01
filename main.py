@@ -1,6 +1,6 @@
 import sys
 import data
-
+import statistics
 
 def main(argv):
     path = "//home//student//Homeworks//HW01//london_sample.csv"
@@ -11,6 +11,11 @@ def main(argv):
     li =  [0]
     dt = data.load_data(path,features)
     data.filter_by_feature(dt ,"is_holiday", li )
+
+    statistics.calc_stdv([1,2,4,5,6,10])
+    statistics.calc_covariance([1,2,4,5,6,10], [1,5,8,8,10,3])
+
+
 if __name__ == '__main__':
     main(sys.argv)
 

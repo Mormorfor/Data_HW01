@@ -5,6 +5,9 @@ def load_data(path, features):
     data = df.to_dict("list")
     return data
 
+def print_details(data, features, statistic_functions):
+    pass
+
 
 def filter_by_feature(data, feature, values):
     all_values = data[feature]
@@ -24,7 +27,6 @@ def filter_by_feature(data, feature, values):
                 data1[key].append(data[key][index])
             else:
                 data2[key].append(data[key][index])
-
 
     return data1, data2
 
